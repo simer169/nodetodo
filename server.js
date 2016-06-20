@@ -5,13 +5,13 @@ var morgan = require('morgan');             // log requests to the console (expr
 var bodyParser = require('body-parser');    // pull information from HTML POST (express4)
 var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
 
-mongoose.connect('mongodb://pankaj:test1234@ds015934.mlab.com:15934/todo', function(err, db) {
-	if (!err) {
-		console.log("Connected to /todo!");
-	} else {
-		console.dir(err);
-	}
-});
+// mongoose.connect('mongodb://pankaj:test1234@ds015934.mlab.com:15934/todo', function(err, db) {
+	// if (!err) {
+		// console.log("Connected to /todo!");
+	// } else {
+		// console.dir(err);
+	// }
+// });
 
 app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
 app.use(morgan('dev'));                                         // log every request to the console
@@ -21,7 +21,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse applica
 app.use(methodOverride());
 
 // listen (start app with node server.js) ======================================
-app.listen(3000);
+app.listen();
 console.log("App listening on port 8080");
 
     var Todo = mongoose.model('Todo', {

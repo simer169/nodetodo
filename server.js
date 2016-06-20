@@ -29,11 +29,20 @@ console.log("App listening on port 8080");
     var Todo = mongoose.model('Todo', {
         text : String
     });
+	
+	
+	   Todo.find(function(err, todos) {
+		console.log("error:"+err);
+		console.log("todos:"+todos);
+            // return all todos in JSON format
+        });
+	
      app.get('/api/todos', function(req, res) {
 
         // use mongoose to get all todos in the database
         Todo.find(function(err, todos) {
-
+		console.log("error:"+err);
+		console.log("todos:"+todos);
             // if there is an error retrieving, send the error. nothing after res.send(err) will execute
             if (err)
                 res.send(err)
